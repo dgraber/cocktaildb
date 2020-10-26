@@ -1,5 +1,26 @@
 # cocktaildb
 
+## Download GitHub CLI
+```
+https://cli.github.com/
+```
+
+## Authenticate log in to GitHub
+```
+gh auth login
+```
+
+## Follow instructions in CLI
+```
+Login with a web browser
+```
+```
+HTTPS
+```
+```
+cd cocktaildb
+```
+
 ## Project setup
 ```
 npm install
