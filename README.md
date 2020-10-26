@@ -18,7 +18,7 @@ Login with a web browser
 HTTPS
 ```
 
-##Clone reopsitory
+## Clone reopsitory
 ```
 gh repo clone dgraber/cocktaildb
 ```
