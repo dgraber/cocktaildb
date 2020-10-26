@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="container-fluid">
     <div v-bind:key="drink.idDrink" v-for="drink in drinkDetails.drinks">
         <div class="mt-4">
             <router-link to="/"><b-button variant="primary" class="backToDrinks">Back to Drinks</b-button></router-link>
         <h1>{{drink.strDrink}}</h1>
             <b-card :img-src="drink.strDrinkThumb" :img-alt="drink.strDrink" img-left class="mb-3">
-            <b-card-text style="text-align:left;">
+            <b-card-text class="drinkDetails">
                 <h2>Ingredients</h2>
                 <ul class="ingredients">
                     <li v-if="drink.strIngredient1 !==null">{{drink.strIngredient1}}</li>
@@ -54,4 +54,12 @@ export default {
  .backToDrinks {
      align-content: left;
  }
+
+.drinkDetails {
+    text-align:left;
+    }
+
+    .mb-3 img{
+        width: 40%;
+    }
 </style>

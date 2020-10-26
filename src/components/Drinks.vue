@@ -1,15 +1,15 @@
 <template>
 <div v-if="drinks.drinks !== null">
     <b-container fluid>
-        <!-- <SearchDrinks v-model="searchString" /> -->
-        <b-button v-b-modal.modal-1 variant="primary">Search Drinks</b-button>
-
-  <b-modal id="modal-1" title="The CocktailDB">
-    <input type="text" v-model="searchString" placeholder="Search Drink Name..." />
-  </b-modal>
+        <!-- <SearchDrinks v-model="searchString" /> -->      
+  <b-button v-b-toggle.collapse-1 variant="primary">Search Drinks</b-button>
+    <b-collapse id="collapse-1" class="mt-2">
+        <b-card>
+            <input type="text" v-model="searchString" placeholder="Search Drink Name..." />     
+        </b-card>
+    </b-collapse>
     <div class="drinks">
         <div v-bind:key="drink.idDrink" v-for="drink in filteredDrinks">
-
             <router-link :to="{name: 'DrinkDetails', params: {idDrink: drink.idDrink }}"><b-card
                 :title="drink.strDrink"
                 :img-src="drink.strDrinkThumb"
@@ -18,9 +18,7 @@
                 tag="article"
                 class="mb-2"
                 >
-
             </b-card></router-link>
-
         </div>
     </div>
     </b-container>
@@ -29,9 +27,7 @@
 
 <script>
  import { mapGetters, mapActions } from "vuex";
-
 // import SearchDrinks from './SearchDrinks';
-
 export default {
     name: "Drinks",
     props: ['idDrink'],
@@ -44,8 +40,7 @@ export default {
         }
     },
     methods: {
-         ...mapActions(['fetchDrinks']),
-         
+         ...mapActions(['fetchDrinks'])        
     },
     mounted(){
         this.fetchDrinks();
@@ -56,9 +51,7 @@ export default {
                 return drink.strDrink.toLowerCase().match(this.searchString);
             });
         },
-    },
-
-    
+    }
 }
 </script>
 
@@ -67,6 +60,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
 }
+
  .mb-2 {
      max-width: 19rem;
      margin: 4% 9%;
@@ -85,12 +79,11 @@ export default {
      font-size: 18px;
  }
 
- .drinkDetails {
-     
+ .drinkDetails {  
      vertical-align: baseline;
      position: absolute;
      text-align: center;
-        bottom: 0;
- }
+     bottom: 0;
+     }
 
 </style>
