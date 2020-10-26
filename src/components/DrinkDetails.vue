@@ -24,6 +24,8 @@
                     <li v-if="drink.strIngredient14 !==null">{{drink.strIngredient14}}</li>
                     <li v-if="drink.strIngredient15 !==null">{{drink.strIngredient15}}</li>
                 </ul>
+                <h2>Instructions</h2>
+                <p>{{drink.strInstructions}}</p>
             </b-card-text>
             </b-card>
         </div>

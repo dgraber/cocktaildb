@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="drinks.drinks !== null">
     <b-container fluid>
         <!-- <SearchDrinks v-model="searchString" /> -->
         <b-button v-b-modal.modal-1 variant="primary">Search Drinks</b-button>
@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+ import { mapGetters, mapActions } from "vuex";
+
 // import SearchDrinks from './SearchDrinks';
 
 export default {
@@ -43,20 +44,21 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['fetchDrinks']),
+         ...mapActions(['fetchDrinks']),
+         
+    },
+    mounted(){
+        this.fetchDrinks();
     },
     computed: {...mapGetters(['drinks']),
-    filteredDrinks: function() {
+         filteredDrinks() {
             return this.drinks.drinks.filter((drink) => {
                 return drink.strDrink.toLowerCase().match(this.searchString);
             });
         },
-        
     },
-        
-    created() {
-        this.fetchDrinks();
-    }
+
+    
 }
 </script>
 
