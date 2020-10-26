@@ -17,6 +17,13 @@ Login with a web browser
 ```
 HTTPS
 ```
+
+##Clone reopsitory
+```
+gh repo clone dgraber/cocktaildb
+```
+
+## Navigate into project
 ```
 cd cocktaildb
 ```
