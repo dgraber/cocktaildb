@@ -38,6 +38,11 @@ npm install
 npm run serve
 ```
 
+## Navigate to localhost port given after serving
+```
+http://localhost:8080/
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
